@@ -18,6 +18,8 @@ const Index = () => {
   const { dark, toggle } = useTheme();
   const [label, setLabel] = useState<WheelLabel>('name');
   const [winner, setWinner] = useState<Contestant | null>(null);
+  const [muted, setMutedState] = useState(isMuted);
+  const toggleMute = useCallback(() => { setMuted(!muted); setMutedState(!muted); }, [muted]);
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors">
