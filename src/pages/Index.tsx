@@ -43,6 +43,9 @@ const Index = () => {
                 <SelectItem value="number">Number</SelectItem>
               </SelectContent>
             </Select>
+            <Button variant="ghost" size="icon" onClick={toggleMute} title={muted ? 'Unmute' : 'Mute'}>
+              {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            </Button>
             <ThemeToggle dark={dark} onToggle={toggle} />
           </div>
         </div>
