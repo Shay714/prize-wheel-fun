@@ -33,14 +33,14 @@ export function ContestantForm({ onAdd, isFull }: Props) {
     <form onSubmit={handleSubmit} className="space-y-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <Input
-          placeholder="Full name"
+          placeholder="Full name (optional)"
           value={name}
           onChange={e => setName(e.target.value)}
           disabled={isFull}
           className="min-w-0"
         />
         <Input
-          placeholder="Email address"
+          placeholder="Email address (optional)"
           type="email"
           value={email}
           onChange={e => setEmail(e.target.value)}

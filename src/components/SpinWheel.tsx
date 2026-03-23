@@ -13,9 +13,9 @@ interface Props {
 }
 
 function getLabel(c: Contestant, idx: number, label: WheelLabel) {
-  if (label === 'email') return c.email;
+  if (label === 'email') return c.email || c.name || `#${idx + 1}`;
   if (label === 'number') return `#${idx + 1}`;
-  return c.name;
+  return c.name || c.email || `#${idx + 1}`;
 }
 
 export function SpinWheel({ contestants, label, onWin }: Props) {
