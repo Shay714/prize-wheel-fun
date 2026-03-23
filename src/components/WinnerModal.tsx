@@ -26,8 +26,9 @@ export function WinnerModal({ winner, onClose }: Props) {
         </DialogHeader>
         {winner && (
           <div className="space-y-3 py-4">
-            <p className="text-3xl font-bold text-primary">{winner.name}</p>
-            <p className="text-lg text-muted-foreground">{winner.email}</p>
+            {winner.name && <p className="text-3xl font-bold text-primary">{winner.name}</p>}
+            {winner.email && <p className="text-lg text-muted-foreground">{winner.email}</p>}
+            {!winner.name && !winner.email && <p className="text-xl text-muted-foreground">Unknown contestant</p>}
           </div>
         )}
         <Button onClick={onClose} className="w-full">Close</Button>
