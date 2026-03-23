@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { Contestant } from '@/hooks/useContestants';
 import { WHEEL_COLORS } from '@/lib/wheelColors';
+import { playTickSound } from '@/lib/sounds';
 import { Button } from '@/components/ui/button';
 import { RotateCw } from 'lucide-react';
 
