@@ -9,6 +9,7 @@ import { ContestantList } from '@/components/ContestantList';
 import { SpinWheel, WheelLabel } from '@/components/SpinWheel';
 import { WinnerModal } from '@/components/WinnerModal';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Trophy, Users, Volume2, VolumeX } from 'lucide-react';
