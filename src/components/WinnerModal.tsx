@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Trophy } from 'lucide-react';
 import { launchConfetti } from '@/lib/confetti';
+import { playWinnerSound } from '@/lib/sounds';
 
 interface Props {
   winner: Contestant | null;
