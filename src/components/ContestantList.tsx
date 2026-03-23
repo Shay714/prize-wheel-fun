@@ -63,8 +63,8 @@ export function ContestantList({ contestants, onUpdate, onRemove, onShuffle, onC
                   {i + 1}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium truncate">{c.name}</p>
-                  <p className="text-sm text-muted-foreground truncate">{c.email}</p>
+                  <p className="font-medium truncate">{c.name || '(no name)'}</p>
+                  {c.email && <p className="text-sm text-muted-foreground truncate">{c.email}</p>}
                 </div>
                 <div className="flex gap-1 flex-shrink-0">
                   <Button size="icon" variant="ghost" onClick={() => startEdit(c)}><Pencil className="h-3.5 w-3.5" /></Button>
