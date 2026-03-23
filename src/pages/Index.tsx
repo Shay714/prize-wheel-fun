@@ -11,7 +11,7 @@ import { WinnerModal } from '@/components/WinnerModal';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Trophy, Users } from 'lucide-react';
+import { Trophy, Users, Volume2, VolumeX } from 'lucide-react';
 
 const Index = () => {
   const { contestants, addContestant, addBulk, updateContestant, removeContestant, clearAll, shuffle, isFull, count, max } = useContestants();
