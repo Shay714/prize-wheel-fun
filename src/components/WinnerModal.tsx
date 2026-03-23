@@ -13,7 +13,7 @@ interface Props {
 
 export function WinnerModal({ winner, onClose }: Props) {
   useEffect(() => {
-    if (winner) launchConfetti();
+    if (winner) { launchConfetti(); playWinnerSound(); }
   }, [winner]);
 
   return (

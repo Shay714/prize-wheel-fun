@@ -133,14 +133,18 @@ export function SpinWheel({ contestants, label, onWin }: Props) {
     const duration = 4000 + Math.random() * 1000;
     const startTime = performance.now();
 
+    let lastSegment = -1;
     const animate = (now: number) => {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / duration, 1);
-      // Deceleration easing
       const eased = 1 - Math.pow(1 - t, 3);
       const currentRot = startRot + totalRotation * eased;
       rotRef.current = currentRot;
       setRotation(currentRot);
+
+      // Tick sound on segment change
+      const seg = Math.floor((((-currentRot - Math.PI / 2) % (2 * Math.PI)) + 4 * Math.PI) / arc) % n;
+      if (seg !== lastSegment) { lastSegment = seg; playTickSound(); }
 
       if (t < 1) {
         animRef.current = requestAnimationFrame(animate);
