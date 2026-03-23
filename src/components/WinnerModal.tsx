@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Trophy } from 'lucide-react';
 import { launchConfetti } from '@/lib/confetti';
+import { playWinnerSound } from '@/lib/sounds';
 
 interface Props {
   winner: Contestant | null;
@@ -12,7 +13,7 @@ interface Props {
 
 export function WinnerModal({ winner, onClose }: Props) {
   useEffect(() => {
-    if (winner) launchConfetti();
+    if (winner) { launchConfetti(); playWinnerSound(); }
   }, [winner]);
 
   return (
