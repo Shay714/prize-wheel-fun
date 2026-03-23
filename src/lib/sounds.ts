@@ -1,6 +1,18 @@
+const MUTE_KEY = 'pwwf-muted';
+
+let muted = localStorage.getItem(MUTE_KEY) === 'true';
+
+export function isMuted() { return muted; }
+
+export function setMuted(v: boolean) {
+  muted = v;
+  localStorage.setItem(MUTE_KEY, String(v));
+}
+
 const ctx = () => new (window.AudioContext || (window as any).webkitAudioContext)();
 
 export function playTickSound() {
+  if (muted) return;
   try {
     const ac = ctx();
     const osc = ac.createOscillator();
@@ -17,9 +29,10 @@ export function playTickSound() {
 }
 
 export function playWinnerSound() {
+  if (muted) return;
   try {
     const ac = ctx();
-    const notes = [523, 659, 784, 1047]; // C5, E5, G5, C6
+    const notes = [523, 659, 784, 1047];
     notes.forEach((freq, i) => {
       const osc = ac.createOscillator();
       const gain = ac.createGain();

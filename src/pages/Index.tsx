@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useContestants, Contestant } from '@/hooks/useContestants';
+import { isMuted, setMuted } from '@/lib/sounds';
 import { useTheme } from '@/hooks/useTheme';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { ContestantForm } from '@/components/ContestantForm';
@@ -8,15 +9,18 @@ import { ContestantList } from '@/components/ContestantList';
 import { SpinWheel, WheelLabel } from '@/components/SpinWheel';
 import { WinnerModal } from '@/components/WinnerModal';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Trophy, Users } from 'lucide-react';
+import { Trophy, Users, Volume2, VolumeX } from 'lucide-react';
 
 const Index = () => {
   const { contestants, addContestant, addBulk, updateContestant, removeContestant, clearAll, shuffle, isFull, count, max } = useContestants();
   const { dark, toggle } = useTheme();
   const [label, setLabel] = useState<WheelLabel>('name');
   const [winner, setWinner] = useState<Contestant | null>(null);
+  const [muted, setMutedState] = useState(isMuted);
+  const toggleMute = useCallback(() => { setMuted(!muted); setMutedState(!muted); }, [muted]);
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors">
@@ -40,6 +44,9 @@ const Index = () => {
                 <SelectItem value="number">Number</SelectItem>
               </SelectContent>
             </Select>
+            <Button variant="ghost" size="icon" onClick={toggleMute} title={muted ? 'Unmute' : 'Mute'}>
+              {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            </Button>
             <ThemeToggle dark={dark} onToggle={toggle} />
           </div>
         </div>
