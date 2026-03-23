@@ -15,8 +15,8 @@ export function ContestantForm({ onAdd, isFull }: Props) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) {
-      setError('Both name and email are required.');
+    if (!name.trim() && !email.trim()) {
+      setError('Please enter at least a name or email.');
       return;
     }
     const result = onAdd(name, email);
