@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useContestants, Contestant } from '@/hooks/useContestants';
+import { isMuted, setMuted } from '@/lib/sounds';
 import { useTheme } from '@/hooks/useTheme';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { ContestantForm } from '@/components/ContestantForm';
